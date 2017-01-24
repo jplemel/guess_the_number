@@ -31,15 +31,19 @@ def check_guess(guess, secret):
 
 
 def main():
-
+    #variable to track number of guesses made
+    numOfGuesses = 0
     (low, high) = configure_range()
     secret = generate_secret(low, high)
 
     while True:
+        #add one every time a guess is made to track guesses
+        numOfGuesses += 1
         guess = get_guess()
         result = check_guess(guess, secret)
         print(result)
-
+        #print number of guesses
+        print('You have guessed ' + str(numOfGuesses) + ' times')
         if result == correct:
             break
 
