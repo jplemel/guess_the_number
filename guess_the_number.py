@@ -3,11 +3,44 @@ import random
 correct = 'you guessed correctly!'
 too_low = 'too low'
 too_high = 'too high'
+min_range = 1
+max_range = 100
 
 
 def configure_range():
     '''Set the high and low values for the random number'''
-    return 1, 10
+
+    while True:
+
+        try:
+            low = 0
+
+            while low <= min_range or low >= max_range:
+
+                low = int(input("Enter low end of guessing range. Must be > {}  and < git{} \n".format(min_range, max_range)))
+
+            break
+
+        except ValueError:
+
+            print("Did you enter a number?")
+
+    while True:
+
+        try:
+            high = 0
+
+            while high >= 100 or high <= low:
+
+                high = int(input("Enter high end of guessing range. must be > {}  and < {} \n".format(low, max_range)))
+
+            break
+
+        except ValueError:
+
+            print("Did you enter a number?")
+
+    return low, high
 
 
 def generate_secret(low, high):
