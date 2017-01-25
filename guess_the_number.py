@@ -17,7 +17,7 @@ def configure_range():
 
             while low <= min_range or low >= max_range:
 
-                low = int(input("Enter low end of guessing range. Must be > {}  and < git{} \n".format(min_range, max_range)))
+                low = int(input("Enter low end of guessing range. Must be > {}  and < {} \n".format(min_range, max_range)))
 
             break
 
@@ -64,6 +64,7 @@ def check_guess(guess, secret):
 
 
 def main():
+
     #variable to track number of guesses made
     numOfGuesses = 0
     (low, high) = configure_range()
@@ -82,4 +83,13 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+
+    option = input("\nPress Any Key To Start. Press Q To Quit.\n")
+
+    while option.lower() != "q":
+
+        main()
+
+        menu = input("\nPlay Game? Press any Key. Press Q to Quit.\n")
+
+    exit()
